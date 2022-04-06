@@ -4,6 +4,8 @@ This is a demo repository for high entropy alloys(HEAs) experiments for "<b>„ÄêÂ
 I build up a regression model to predict the OH* adsorption energy of HEAs, and a WGAN-GP(Wasserstein GAN using gradient penalty) to generate HEA compositions
 
 
+## Dataset
+<b>Because of the copyright of the dataset,  this repository don't provide any HEAs dataset!</b> Therefore, you have to collect you own data! You can refer this repository--[neural-network-design-of-HEA](https://github.com/jol-jol/neural-network-design-of-HEA) for more infomation.
 ## Dependecies
 The prominent packages are:
 * numpy
