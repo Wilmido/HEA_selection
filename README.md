@@ -2,13 +2,14 @@
 This is repository for high entropy alloys(HEAs) experiments for "<b>【学科交叉项目】神经网络机器学习辅助筛选高熵合金催化剂(\[Interdisciplinary Project\] Neural network machine learning assisted screening of high entropy alloy catalysts)</b>" in "Innovation and Entrepreneurship Project for College Students"(2021), HX2021037
 
 This work is simply based on [neural-network-design-of-HEA](https://github.com/jol-jol/neural-network-design-of-HEA).
-What I have done is proposing a regression model to predict the OH* adsorption energy of HEAs, and a WGAN-GP(Wasserstein GAN using gradient penalty) to generate HEA compositions. Moreover, The regression model is able to tackle with any number of atoms and invariant to input permutaion beacuse I use the symmetric function  __average__ as pooling operation in the model, which greatly helps the model performance in real experiments. 
+In this repository, I propose a regression model to predict the OH* adsorption energy of HEAs, and a WGAN-GP(Wasserstein GAN using gradient penalty) to generate HEA compositions. Moreover, The regression model is able to tackle with any number of atoms and invariant to input permutaion beacuse I use the symmetric function  __average__ as pooling operation in the model, which greatly helps the model performance in real experiments. 
 
 
 ## Dataset
-<b>Because of the copyright of the dataset, this repository doesn't provide HEAs dataset!</b> Therefore, you have to collect you own data! 
+<b>Because of the ownership of the dataset, this repository doesn't provide HEAs dataset!</b> Therefore, you have to collect your own data! 
 
 The data structure is shown below.
+
 ||Atom|Ru|Rh|Pd|Ir|PT|
 |--|--|--|--|--|--|--|
 |A|Period|5|5|5|6|6|
@@ -21,18 +22,19 @@ The data structure is shown below.
 |F|M|101.07|102.906|106.42|192.2|195.08|
 ||atomic number|44|45|46|77|78|
 
-where CN is coordination number, AtSite is active sites, and M is molar mass. You have to follow the coord_numbers <a href="HEA_selection\data\coord_nums.csv">coord_nums</a> to fill in the blanks.
+where CN is coordination number, AtSite is active sites, and M is molar mass. You have to follow the <a href="HEA_selection\data\coord_nums.csv">coord_numbers</a> to fill in the blanks.
 
-You can refer this repository--[neural-network-design-of-HEA](https://github.com/jol-jol/neural-network-design-of-HEA) for more infomation.
+I build up my dataset based on [neural-network-design-of-HEA](https://github.com/jol-jol/neural-network-design-of-HEA), you can refer this repository for more infomation.
 
 
 ## Analysis
 It's worth noting that HEAs datasets are a set of atoms and invariant to orders of atoms which require the model we proposed has certain symmetrizations in the net computation[<sup>*</sup>](#refer-anchor-3).
 
-After build up the dataset, you should using Pearson correlation coefficient to drop out highly related features, as seen below.
+After build up the dataset, you should use Pearson correlation coefficient to drop out highly related features to reduce copmutaion cost, as seen below.
+[Pearson_value.pdf](https://github.com/Wilmido/HEA_selection/files/8501269/Pearson_value.pdf)
 
 
-The left features are descriptors we deisred.
+The left features are descriptors we deisred, which are denoted as 'A,B,C,D,E,F' in table.
 
 ## Dependecies
 The prominent packages are:
@@ -61,10 +63,12 @@ Obtaining the plot of __MAE__ and __RMSE__ compared with DFT-calculated adsorpti
 # training a model for downstream tasks, you need to update the checkpoint path first! 
 python main.py
 ```
+![6_500_plot](https://user-images.githubusercontent.com/71449089/163707875-e0862e04-4405-4b16-805e-d58973e49797.svg)
+
 
 *Pretrained Models*
  ---
-You can also just simply use the checkpoint I have provided in <a href="HEA_selection/checkpoint">checkpoint/9_700epochs_5_model.pth</a>.
+You can also just simply use the checkpoint I have provided in <a href="HEA_selection/checkpoint">checkpoint/6_700epochs_5_model.pth</a>.
 
 
 ## T-SNE
@@ -72,6 +76,8 @@ Visualize the data, and the features processed by the model.
 ```
 python t_SNE.py
 ```
+[best_data_tsne.pdf](https://github.com/Wilmido/HEA_selection/files/8501271/best_data_tsne.pdf)
+
 
 ## Generate HEAs
 You can switch the mode to choose whether to train the regression model. The result of loss plot demonstrates that the training process of GAN is not good :(
