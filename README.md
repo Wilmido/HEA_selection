@@ -31,7 +31,8 @@ I build up my dataset based on [neural-network-design-of-HEA](https://github.com
 It's worth noting that HEAs datasets are a set of atoms and invariant to orders of atoms which require the model we proposed has certain symmetrizations in the net computation[<sup>*</sup>](#refer-anchor-3).
 
 After build up the dataset, you should use Pearson correlation coefficient to drop out highly related features to reduce copmutaion cost, as seen below.
-[Pearson_value.pdf](https://github.com/Wilmido/HEA_selection/files/8501269/Pearson_value.pdf)
+![Pearson_value](https://user-images.githubusercontent.com/71449089/163708482-4db16267-8b19-4f9e-a3c2-e3d526ae2dfa.png)
+
 
 
 The left features are descriptors we deisred, which are denoted as 'A,B,C,D,E,F' in table.
@@ -76,7 +77,8 @@ Visualize the data, and the features processed by the model.
 ```
 python t_SNE.py
 ```
-[best_data_tsne.pdf](https://github.com/Wilmido/HEA_selection/files/8501271/best_data_tsne.pdf)
+![best_data_tsne](https://user-images.githubusercontent.com/71449089/163708580-70608889-5163-4b0d-b376-0edf2237a2c3.png)
+
 
 
 ## Generate HEAs
