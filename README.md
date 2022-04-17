@@ -78,6 +78,7 @@ Visualize the data, and the features processed by the model.
 python t_SNE.py
 ```
  <img src="https://user-images.githubusercontent.com/71449089/163708580-70608889-5163-4b0d-b376-0edf2237a2c3.png" width = "300" height = "300" alt="best_data_tsne" />
+![best_data_tsne](https://user-images.githubusercontent.com/71449089/163709195-f8a32a6c-ca20-4910-bdd5-b0e7214a6ac8.svg)
 
 
 
