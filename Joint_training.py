@@ -15,7 +15,6 @@ from model.networks import Rmodel
 from model.WAGN_GP import WGAN_GP
 from utils.Trainlogger import Logger
 from utils.data_loader import BasicDataset
-from utils.PearsonSelection import feature_selection
 from utils.torch_utils import get_dataloader
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -56,10 +55,8 @@ if __name__ == '__main__':
 
     x_train, y_train = BasicDataset('data/new_data.csv').get_data(device, 1)
     #! if using new data, select relative data by dropping redundant descriptors
-    x_train = feature_selection(x_train.detach().cpu().numpy())
 
         
- 
     num_feature = x_train.shape[-1]
     lr = args.learning_rate
     Z_DIM = args.z_dim

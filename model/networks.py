@@ -23,12 +23,13 @@ def make_nn_block(input_channels, output_channels, kernel_size=1, stride=1, padd
 
 
 class MyModel(nn.Module):
-    def __init__(self, num_feature=5):
+    def __init__(self, num_feature=6):
         super(MyModel, self).__init__()
         
-        self.c1 = make_nn_block(num_feature, hidden_dim_1 , kernel_size=3, stride=1, padding=1)              
-        self.c2 = make_nn_block(hidden_dim_1, hidden_dim_2,3,1,1)
-        self.c3 = make_nn_block(hidden_dim_2, hidden_dim_2,3,1,1) 
+        # self.c1 = make_nn_block(num_feature, hidden_dim_1 , kernel_size=3, stride=1, padding=1)              
+        self.c1 = make_nn_block(num_feature, hidden_dim_1 , kernel_size=1)    
+        self.c2 = make_nn_block(hidden_dim_1, hidden_dim_2,1)
+        self.c3 = make_nn_block(hidden_dim_2, hidden_dim_2,1) 
 
         self.fc = nn.Sequential(
             nn.Flatten(),			 
@@ -56,8 +57,8 @@ class Rmodel(nn.Module):
         super(Rmodel, self).__init__()
         global SharedConv
         if SharedConv == None:
-            SharedConv = make_nn_block(num_feature, hidden_dim_1 , kernel_size=3, stride=1, padding=1)
-        
+            # SharedConv = make_nn_block(num_feature, hidden_dim_1 , kernel_size=3, stride=1, padding=1)
+            SharedConv = make_nn_block(num_feature, hidden_dim_1 , kernel_size=1)
         self.c1 = SharedConv               
         self.c2 = make_nn_block(hidden_dim_1, hidden_dim_2,3,1,1)       
         self.fc = nn.Sequential(
@@ -133,8 +134,8 @@ class Discriminator(nn.Module):
         
         global SharedConv
         if SharedConv == None:    
-            SharedConv = make_nn_block(num_feature, hidden_dim_1 , kernel_size=3, stride=1, padding=1)
-  
+            # SharedConv = make_nn_block(num_feature, hidden_dim_1 , kernel_size=3, stride=1, padding=1)
+            SharedConv = make_nn_block(num_feature, hidden_dim_1 , kernel_size=1)
         self.d1 = SharedConv
 
         self.d2 = nn.Sequential(
