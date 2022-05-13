@@ -1,5 +1,5 @@
 # No More Update!!!
-For the reason that this work has some troble to extent other experiments, I will not update this repository any more. Please move to my other repository [__HEA4ORR__](https://github.com/Wilmido/HEA4ORR) for my latest work.
+For the reason that this work leaking of flexibility has some trouble to expand other experiments, I will not update this repository any more. Please move to my other repository [__HEA4ORR__](https://github.com/Wilmido/HEA4ORR) for my latest work.
 
 ## Mining High Entropy Alloys as Electrocatalyst for Oxygen Reduction Reaction by Machine Learning
 This is repository for high entropy alloys(HEAs) experiments of "<b>【学科交叉项目】神经网络机器学习辅助筛选高熵合金催化剂(\[Interdisciplinary Project\] Neural network machine learning assisted screening of high entropy alloy catalysts)</b>" in "Innovation and Entrepreneurship Project for College Students"(2021), HX2021037
